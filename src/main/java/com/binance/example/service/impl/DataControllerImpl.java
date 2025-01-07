@@ -20,9 +20,9 @@ public class DataControllerImpl implements DataController {
     }
 
     public void handleMessage(OrderBookDTO dto) {
-        List<TableOrderBookModel> tableOrderBookModels = TableDataModelMapper.mapFromApiResponse(dto);
+        List<TableOrderBookModel> orderBookModels = TableDataModelMapper.mapFromApiResponse(dto);
 
-        Observable.fromArray(tableOrderBookModels)
+        Observable.fromArray(orderBookModels)
                 .observeOn(Schedulers.io())
                 .subscribe(data -> Platform.runLater(() -> list.setAll(data)));
     }
