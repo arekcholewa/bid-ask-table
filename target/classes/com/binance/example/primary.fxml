@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.geometry.Insets?>
+<VBox alignment="CENTER" spacing="20.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.binance.example.controller.TableViewController">
+
+   <padding>
+      <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
+   </padding>
+   <TableView fx:id="tableView" minWidth="410" prefHeight="550" >
+      <columns>
+         <TableColumn fx:id="number"  text="No" prefWidth="30" reorderable="false" sortable="false" resizable="false">
+         </TableColumn>
+         <TableColumn  fx:id="buyPrice"  text="Buy Price" prefWidth="100" reorderable="false" sortable="false" resizable="false">
+         </TableColumn>
+         <TableColumn fx:id="buyAmount" text="Buy Amount" prefWidth="100" reorderable="false" sortable="false" resizable="false">
+         </TableColumn>
+         <TableColumn fx:id="sellPrice" text="Sell Price" prefWidth="100" reorderable="false" sortable="false" resizable="false">
+         </TableColumn>
+         <TableColumn fx:id="sellAmount" text="Sell Amount" prefWidth="100" reorderable="false" sortable="false" resizable="false">
+         </TableColumn>
+      </columns>
+   </TableView>
+
+</VBox>
