@@ -4,7 +4,7 @@ This JavaFX application connects to the Binance WebSocket API to fetch the top 2
 
 ## Technologies Used
 
-The following technologies and libraries are used in this project:
+The following technologies are used in this project:
 
 - **JavaFX**: A framework for building the graphical user interface (GUI).
 - **RXJava**: A reactive programming library used for handling asynchronous data streams from the WebSocket API.
