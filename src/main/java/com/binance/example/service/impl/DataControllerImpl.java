@@ -23,7 +23,8 @@ public class DataControllerImpl implements DataController {
         List<TableOrderBookModel> orderBookModels = TableDataModelMapper.mapFromApiResponse(dto);
 
         Observable.fromArray(orderBookModels)
-                .observeOn(Schedulers.io())
-                .subscribe(data -> Platform.runLater(() -> list.setAll(data)));
+                .subscribeOn(Schedulers.io())
+                .doOnNext(data -> Platform.runLater(() -> list.setAll(data)))
+                .subscribe();
     }
 }
