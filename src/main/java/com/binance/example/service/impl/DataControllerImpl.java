@@ -1,15 +1,13 @@
 package com.binance.example.service.impl;
 
-import com.binance.example.model.OrderBookDTO;
-import com.binance.example.service.DataController;
 import com.binance.example.mapper.TableDataModelMapper;
+import com.binance.example.model.OrderBookDTO;
 import com.binance.example.model.TableOrderBookModel;
+import com.binance.example.service.DataController;
 import io.reactivex.rxjava3.core.Observable;
 import io.reactivex.rxjava3.schedulers.Schedulers;
 import javafx.application.Platform;
 import javafx.collections.ObservableList;
-
-import java.util.List;
 
 public class DataControllerImpl implements DataController {
 
@@ -20,10 +18,9 @@ public class DataControllerImpl implements DataController {
     }
 
     public void handleMessage(OrderBookDTO dto) {
-        List<TableOrderBookModel> orderBookModels = TableDataModelMapper.mapFromApiResponse(dto);
-
-        Observable.fromArray(orderBookModels)
+        Observable.fromArray(dto)
                 .subscribeOn(Schedulers.io())
+                .map(TableDataModelMapper::mapFromApiResponse)
                 .observeOn(Schedulers.from(Platform::runLater))
                 .subscribe(list::setAll);
     }
