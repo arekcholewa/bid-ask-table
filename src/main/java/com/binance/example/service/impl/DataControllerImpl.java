@@ -24,7 +24,7 @@ public class DataControllerImpl implements DataController {
 
         Observable.fromArray(orderBookModels)
                 .subscribeOn(Schedulers.io())
-                .doOnNext(data -> Platform.runLater(() -> list.setAll(data)))
-                .subscribe();
+                .observeOn(Schedulers.from(Platform::runLater))
+                .subscribe(list::setAll);
     }
 }
